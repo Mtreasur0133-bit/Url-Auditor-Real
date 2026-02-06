@@ -9,7 +9,7 @@ document.getElementById("scanBtn").addEventListener("click", async () => {
 
   document.getElementById("status").textContent = "Scanning...";
 
-  const res = await fetch("/api/scan", {
+  const res = await fetch("https://url-auditor-real-1.onrender.com/api/scan", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ urls }),
@@ -24,12 +24,12 @@ document.getElementById("scanBtn").addEventListener("click", async () => {
     const row = document.createElement("tr");
 
     row.innerHTML = `
-        <td>${r.url}</td>
-        <td>${r.status}</td>
-        <td class="${r.blocked ? "blocked" : "ok"}">
-          ${r.blocked ? "Blocked" : "OK"}
-        </td>
-      `;
+      <td>${r.url}</td>
+      <td>${r.status}</td>
+      <td class="${r.blocked ? "blocked" : "ok"}">
+        ${r.blocked ? "Blocked" : "OK"}
+      </td>
+    `;
 
     tbody.appendChild(row);
   });
