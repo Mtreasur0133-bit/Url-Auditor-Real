@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>URL Auditor</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>URL Auditor</h1>
+
+    <textarea
+      id="urlInput"
+      placeholder="Paste URLs here, one per line"
+    ></textarea>
+
+    <button id="scanBtn">Scan URLs</button>
+
+    <div id="status"></div>
+
+    <table id="resultsTable">
+      <thead>
+        <tr>
+          <th>URL</th>
+          <th>Status</th>
+          <th>Blocked?</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script src="script.js"></script>
+  </body>
+</html>
