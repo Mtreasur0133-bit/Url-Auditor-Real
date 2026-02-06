@@ -5,7 +5,7 @@ const app = express();
 
 // ⭐ Allow ONLY your GitHub Pages frontend
 app.use(cors({
-  origin: "https://Mtreasur0133-bit.github.io"
+  origin: "https://mtreasur0133-bit.github.io/Frontend.edu/"
 }));
 
 app.use(express.json());
