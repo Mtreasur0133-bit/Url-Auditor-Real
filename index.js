@@ -3,17 +3,17 @@ const path = require("path");
 const cors = require("cors");
 const app = express();
 
-// ⭐ Allow ONLY your GitHub Pages frontend
+// ⭐ Correct CORS rule
 app.use(cors({
-  origin: "https://mtreasur0133-bit.github.io/Frontend.edu/"
+  origin: "https://mtreasur0133-bit.github.io"
 }));
 
 app.use(express.json());
 
-// (Optional) If you still want to serve static files locally:
+// Optional: static files (safe to keep)
 app.use(express.static("public"));
 
-// Simple test route
+// Test route
 app.get("/api/test", (req, res) => {
   res.json({ message: "Server is running" });
 });
