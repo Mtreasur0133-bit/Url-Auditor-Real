@@ -1,8 +1,16 @@
 const express = require("express");
 const path = require("path");
+const cors = require("cors");
 const app = express();
 
+// ⭐ Allow ONLY your GitHub Pages frontend
+app.use(cors({
+  origin: "https://Mtreasur0133-bit.github.io"
+}));
+
 app.use(express.json());
+
+// (Optional) If you still want to serve static files locally:
 app.use(express.static("public"));
 
 // Simple test route
@@ -10,9 +18,9 @@ app.get("/api/test", (req, res) => {
   res.json({ message: "Server is running" });
 });
 
-// ⬇️ INSERTED HERE
 const { scanUrls } = require("./server/scanner");
 
+// Main scan route
 app.post("/api/scan", async (req, res) => {
   const { urls } = req.body;
 
@@ -28,7 +36,6 @@ app.post("/api/scan", async (req, res) => {
     res.status(500).json({ error: "Scan failed" });
   }
 });
-// ⬆️ INSERTED HERE
 
 // Start server
 const PORT = process.env.PORT || 8080;
