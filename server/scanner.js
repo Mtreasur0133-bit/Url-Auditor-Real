@@ -1,21 +1,30 @@
 const axios = require("axios");
 const { classifyResponse } = require("./classify");
 
+function normalizeUrl(url) {
+  if (!url.startsWith("http://") && !url.startsWith("https://")) {
+    return "https://" + url;
+  }
+  return url;
+}
+
 async function fetchUrl(url) {
+  const finalUrl = normalizeUrl(url);
+
   try {
-    const response = await axios.get(url, {
+    const response = await axios.get(finalUrl, {
       timeout: 5000,
       validateStatus: () => true,
     });
 
     return {
-      url,
+      url: finalUrl,
       status: response.status,
       blocked: classifyResponse(response.data),
     };
   } catch (err) {
     return {
-      url,
+      url: finalUrl,
       status: "error",
       blocked: false,
       error: err.message,
