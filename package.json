@@ -5,8 +5,9 @@
   "scripts": {
     "start": "node index.js"
   },
-  "dependencies": {
-    "express": "latest",
-    "axios": "latest"
-  }
+"dependencies": {
+  "express": "latest",
+  "axios": "latest",
+  "cors": "latest"
+}
 }
